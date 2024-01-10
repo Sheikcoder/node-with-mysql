@@ -1,12 +1,13 @@
 const express = require('express');
 const PostController = require("../controllers/post.controllers");
-const router = express.Router();
+const checkAuthMiddleware = require ("../middleware/check-auth");
 
-// Define a POST route to handle saving posts
-router.post("/", PostController.save);
+
+const router = express.Router();
+router.post("/", checkAuthMiddleware.checkAuth , PostController.save);
 router.get("/:id", PostController.show);
 router.get("/", PostController.index);
-router.patch("/:id", PostController.update);
-router.delete("/:id", PostController.delet);
+router.patch("/:id", checkAuthMiddleware.checkAuth ,PostController.update);
+router.delete("/:id", checkAuthMiddleware.checkAuth ,PostController.delet);
 
-module.exports = router;    
+module.exports = router;     

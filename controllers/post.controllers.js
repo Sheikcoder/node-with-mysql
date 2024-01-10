@@ -1,9 +1,10 @@
 
 const { Model } = require('sequelize');
 const models  = require('../models');
+const Validator = require('fastest-validator') 
 
 function save(req, res) {
-  const postData = {
+  const post = {
     title: req.query.title,
     content: req.query.content,
     imageUrl: req.query.imageUrl,
@@ -11,13 +12,30 @@ function save(req, res) {
     userId: 1,
   };
 
-  console.log("Data to be inserted:", postData);
+  const schema = {
+    title: { type: "string", optional: false, max: "100" },
+    content: { type: "string", optional: false, max: "100" },
+    category: { type: "string", optional: false }
+  };
+  
 
-  models.post.create(postData)
+  const v = new Validator();
+  const validationResponse = v.validate(post, schema);
+
+  if (validationResponse !== true) {
+    return res.status(400).json({
+      message: "Validation Failed",
+      error: validationResponse
+    });
+  }
+
+  console.log("Data to be inserted:", post);
+
+  models.post.create(post)
     .then((result) => {
       res.status(201).json({
         message: 'Data created successfully',
-        post: result,   
+        post: result,
       });
     })
     .catch((error) => {
@@ -27,6 +45,7 @@ function save(req, res) {
       });
     });
 }
+
 
 function show (req , res){
   const id = req.params.id
@@ -44,7 +63,7 @@ function show (req , res){
       message: "somthig wrong"
     })
   })
-}
+} 
 
 function index (req , res){
 
@@ -65,8 +84,23 @@ function update (req , res){
       title: req.query.title,
       content: req.query.content,
       imageUrl: req.query.imageUrl,
-      category: req.query.category,
-     
+      category: req.query.category, 
+    }
+
+    const schema = {
+      title: { type: "string", optional: false, max: "100" },
+      content: { type: "string", optional: false, max: "100" },
+      category: { type: "string", optional: false }
+    };
+  
+    const v = new Validator();
+    const validationResponse = v.validate(updateData, schema);
+  
+    if (validationResponse !== true) {
+      return res.status(400).json({
+        message: "Validation Failed",
+        error: validationResponse
+      });
     }
 
     const userId = 1;
