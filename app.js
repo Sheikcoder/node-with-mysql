@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true })); //predefind api import
 app.use(bodyParser.json());
-
+app.use("/images", express.static('uploades'));
 app.use("/posts", postsRoutes);
 app.use("/user" , userRoutes);
 app.use("/image" , imageRoutes);
