@@ -66,54 +66,6 @@ function signup(req, res) {
 }
 
 
-// function login (req ,res ){
-//   models.user.findOne({where:{email : req.body.email}}).then(user =>{
-//     if(user === null){
-//       return res.status(500).json({
-//         message: "User Credential invalid"
-//       })
-//   }else{
-//     bcryptjs.compare(req.body.password , user.password , function(err , result){
-//       if(result){
-//         const token = jwt.sign({
-//           email:user.email,
-//           userId : user.id
-//         }, 'secret' , function (err , token){
-//           res.status(200).json({
-//             message: "Login successfully",
-//             token: token
-//           })
-//         })
-//       }else{
-//         res.status(500).json({
-//           message: "Login Unsuccessfully Sorry",
-//         })
-//       }
-
-//       const schema = {
-//         email : {type : "string" , optional  : "false" , max: "100"},
-//         password : {type : "string" , optional  : "false" , max: "100"},
-//       }
-  
-//       const v  = new Validator()
-//       const validationResponce =  v.validate(user , schema);
-  
-//       if(validationResponce !== true){
-//         return res.status(400).json({
-//           message: "Validation Failed",
-//           error: validationResponce
-//         });
-//       }
-
-//     })
-//   }
-//   }).catch(err =>{
-//     res.status(500).json({
-//       message: "something went wrong!"
-//     })
-//   })
-// }
-
 function login(req, res) {
 
   //validation 
