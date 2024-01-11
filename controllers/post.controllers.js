@@ -1,7 +1,7 @@
 
 const { Model } = require('sequelize');
 const models  = require('../models');
-const Validator = require('fastest-validator') 
+const Validator = require('fastest-validator');
 
 function save(req, res) {
   const post = {
@@ -9,8 +9,10 @@ function save(req, res) {
     content: req.query.content,
     imageUrl: req.query.imageUrl,
     category: req.query.category,
-    userId: 1,
+    userId: req.userData.userId,
   };
+
+  console.log("id", req.userData)
 
   const schema = {
     title: { type: "string", optional: false, max: "100" },
@@ -31,6 +33,27 @@ function save(req, res) {
 
   console.log("Data to be inserted:", post);
 
+  models.categories.findByPk(req.query.category).then((result) =>{
+    models.post.create(post)
+if(result !== null){
+  res.status(201).json({
+    message: 'Data created successfully',
+    post: post,
+  });
+}else{
+  res.status(500).json({
+    message: 'Data not added',
+  });
+
+}
+  }).catch((error)=>{
+    res.status(500).json({
+      message: 'category Id invalied',
+      error: error,
+    });
+    
+  })
+
   models.post.create(post)
     .then((result) => {
       res.status(201).json({
@@ -45,6 +68,8 @@ function save(req, res) {
       });
     });
 }
+
+
 
 
 function show (req , res){
