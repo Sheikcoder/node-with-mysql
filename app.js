@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use("/images", express.static('uploades'));
 app.use("/posts", postsRoutes);
 app.use("/user" , userRoutes);
-app.use("/image" , imageRoutes);
+app.use("/file" , imageRoutes);
 app.use ("/test",testRoutes );
 app.use ("/count",countRoutes );
 

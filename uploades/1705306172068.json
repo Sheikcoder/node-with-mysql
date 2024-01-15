@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "879e1988-8931-430f-8121-660c2d203648",
+		"name": "node JS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25448574"
+	},
+	"item": [
+		{
+			"name": "CURD",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3001/posts/16?title=sheikabdullasfffs&content=tsassddd&imageUrl=http:/msdffffadadad&category=12ddaadad",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"posts",
+								"16"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "sheikabdullasfffs"
+								},
+								{
+									"key": "content",
+									"value": "tsassddd"
+								},
+								{
+									"key": "imageUrl",
+									"value": "http:/msdffffadadad"
+								},
+								{
+									"key": "category",
+									"value": "12ddaadad"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all datas get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one value get data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/posts/18",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"posts",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete data",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/posts/18",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"posts",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create save with category join",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZWlrMDA3QGdtYWlsLmNvbSIsInVzZXJJZCI6MTIsImlhdCI6MTcwNDkxNDMwMn0.nqALg5ckheuNoa6QRkxO4ubtVerw9ntQHTAvmouT3gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3001/posts?title=sheik&content=tsa&imageUrl=OKBH&category=28",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "sheik"
+								},
+								{
+									"key": "content",
+									"value": "tsa"
+								},
+								{
+									"key": "imageUrl",
+									"value": "OKBH"
+								},
+								{
+									"key": "category",
+									"value": "28"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User Created",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "sheik",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sheiksksl",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "adreeefgg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/user/sign-up",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login With Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "sheik@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/user/login?email=sheik@gmail.com&password=123456",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "sheik@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image upload",
+			"item": [
+				{
+					"name": "Image Upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZWlrMDA3QGdtYWlsLmNvbSIsInVzZXJJZCI6MTIsImlhdCI6MTcwNDg4ODA0NX0.vDAG4rDEKgIt1bEHbMe1ogv6sMcyUZXmfXXVz9IXVcA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/suppo/Desktop/images.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/image/uploads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"image",
+								"uploads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multi-Image Upload Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZWlrMDA3QGdtYWlsLmNvbSIsInVzZXJJZCI6MTIsImlhdCI6MTcwNDg4ODA0NX0.vDAG4rDEKgIt1bEHbMe1ogv6sMcyUZXmfXXVz9IXVcA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/suppo/Desktop/images.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/image/uploads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"image",
+								"uploads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload image view",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/images/10.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"images",
+								"10.png"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Join Table",
+			"item": [
+				{
+					"name": "One To One Join",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/test/joinone",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"test",
+								"joinone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One to many table Join",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/test/onetomany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"test",
+								"onetomany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Many To many table join",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/test/manytomany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"test",
+								"manytomany"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
