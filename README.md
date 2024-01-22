@@ -1,5 +1,5 @@
 
-HI every one I am Sheik
+Hi every one I am Sheik
 
 ## Description
 This project is a Node.js application built using the Sequelize ORM for interacting with a MySQL database. It encompasses a variety of features, including basic CRUD operations, user authentication with Bearer Tokens, Sequelize migrations for database schema management, seeders for populating the database with initial data, image upload capabilities, and advanced SQL operations like table joins. The application also leverages Sequelize associations such as hasOne, hasMany, belongsTo, and belongsToMany for establishing relationships between different database tables.
